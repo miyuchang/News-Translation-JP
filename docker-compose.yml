@@ -1,0 +1,13 @@
+version: '3.8'
+services:
+  news-translation-jp:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    image: news-translation-jp
+    container_name: news-translation-jp
+    ports:
+      - "9061:80"
+    restart: unless-stopped
+    volumes:
+      - ./.htpasswd:/etc/nginx/.htpasswd:ro
